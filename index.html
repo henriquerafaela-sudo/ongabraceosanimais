@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adote & Cuide | ONG Patas Unidas</title>
+  <!-- Google Fonts: delicadas e sofisticadas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <!-- Font Awesome para ícones delicados -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f7f5f0;
+      font-family: 'Montserrat', sans-serif;
+      color: #3b3b2e;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, h4, .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #4a5e3a;
+    }
+
+    /* Paleta verde oliva sofisticada */
+    :root {
+      --olive-light: #a8b89a;
+      --olive: #7a8f6b;
+      --olive-dark: #4d5e3d;
+      --olive-deep: #2f3b28;
+      --cream: #f9f7f2;
+      --warm-gray: #e3dfd6;
+      --accent-soft: #c2b8a3;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--cream);
+      padding: 25px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--warm-gray);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--olive-dark);
+      letter-spacing: 2px;
+    }
+
+    .logo i {
+      color: var(--olive);
+      margin-right: 8px;
+      font-size: 2rem;
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: var(--olive);
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Carrinho no header */
+    .cart-icon {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background-color: white;
+      padding: 8px 20px;
+      border-radius: 50px;
+      box-shadow: 0 6px 14px rgba(90, 80, 70, 0.06);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid #e4dfd6;
+    }
+
+    .cart-icon:hover {
+      background-color: #fefefe;
+      box-shadow: 0 8px 18px rgba(100, 90, 70, 0.12);
+    }
+
+    .cart-icon i {
+      font-size: 1.4rem;
+      color: var(--olive-dark);
+    }
+
+    .cart-count {
+      background-color: var(--olive);
+      color: white;
+      font-weight: 400;
+      font-size: 0.85rem;
+      padding: 2px 10px;
+      border-radius: 30px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Banner / hero */
+    .hero {
+      background: linear-gradient(135deg, #f1efe8 0%, #e6e9de 100%);
+      padding: 55px 8%;
+      text-align: center;
+      border-bottom: 1px solid #d9d4c8;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: var(--olive-deep);
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      font-weight: 200;
+      color: #5d5a4f;
+      max-width: 750px;
+      margin: 0 auto 25px;
+      font-style: italic;
+    }
+
+    .btn-adopt {
+      background-color: transparent;
+      border: 1.5px solid var(--olive-dark);
+      color: var(--olive-dark);
+      padding: 12px 34px;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-adopt:hover {
+      background-color: var(--olive-dark);
+      color: white;
+      border-color: var(--olive-dark);
+    }
+
+    /* Seções */
+    .section-title {
+      text-align: center;
+      margin: 50px 0 20px;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--olive-dark);
+      position: relative;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 1.5px;
+      background: var(--accent-soft);
+      margin: 12px auto 0;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 30px;
+      padding: 20px 8% 60px;
+    }
+
+    /* Cards de produto */
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 16px 20px;
+      box-shadow: 0 12px 28px -8px rgba(70, 60, 40, 0.08);
+      transition: transform 0.25s, box-shadow 0.3s;
+      border: 1px solid #ece9e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 32px -12px rgba(80, 70, 50, 0.18);
+      border-color: #d6d0c2;
+    }
+
+    .product-icon {
+      font-size: 2.8rem;
+      color: var(--olive);
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--olive-deep);
+      letter-spacing: 0.5px;
+    }
+
+    .product-desc {
+      font-size: 0.78rem;
+      color: #7b7a6e;
+      margin-bottom: 12px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .product-price {
+      font-weight: 400;
+      font-size: 1.3rem;
+      color: var(--olive-dark);
+      margin-bottom: 16px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .btn-add {
+      background-color: #eef0e9;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: var(--olive-deep);
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+      border: 1px solid transparent;
+    }
+
+    .btn-add i {
+      margin-right: 6px;
+      font-size: 0.8rem;
+    }
+
+    .btn-add:hover {
+      background-color: var(--olive);
+      color: white;
+      border-color: var(--olive);
+    }
+
+    /* Carrinho lateral (drawer) */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 380px;
+      max-width: 90vw;
+      height: 100vh;
+      background-color: var(--cream);
+      box-shadow: -12px 0 35px rgba(50, 40, 30, 0.15);
+      transition: right 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      padding: 25px 20px;
+      border-left: 1px solid #dad5c8;
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #d6d0c2;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+
+    .cart-header h3 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--olive-dark);
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--olive);
+      cursor: pointer;
+      padding: 0 10px;
+      font-weight: 200;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #e2ddd2;
+      font-weight: 300;
+    }
+
+    .cart-item-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: var(--olive-deep);
+    }
+
+    .cart-item-price {
+      font-size: 0.85rem;
+      color: #6e6a5e;
+    }
+
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 5px;
+    }
+
+    .cart-item-qty button {
+      background: white;
+      border: 1px solid #ccc7b8;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--olive-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.1s;
+    }
+
+    .cart-item-qty button:hover {
+      background-color: var(--olive);
+      color: white;
+      border-color: var(--olive);
+    }
+
+    .cart-item-total {
+      font-weight: 500;
+      color: var(--olive-dark);
+      font-size: 1rem;
+      margin-left: 12px;
+    }
+
+    .empty-cart-message {
+      text-align: center;
+      color: #9b9688;
+      font-style: italic;
+      padding: 30px 0;
+      font-size: 1rem;
+    }
+
+    .cart-footer {
+      margin-top: 20px;
+      border-top: 1px solid #d6d0c2;
+      padding-top: 20px;
+    }
+
+    .cart-total {
+      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      color: var(--olive-deep);
+    }
+
+    .btn-checkout {
+      background-color: var(--olive-dark);
+      border: none;
+      width: 100%;
+      padding: 16px;
+      border-radius: 50px;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-checkout:hover {
+      background-color: #3c4a2e;
+    }
+
+    .adoption-phrase {
+      margin-top: 15px;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      color: #8a8577;
+      text-align: center;
+      line-height: 1.5;
+      border-top: 1px dashed #d6d0c2;
+      padding-top: 14px;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(60, 55, 45, 0.2);
+      backdrop-filter: blur(3px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f2efe8;
+      text-align: center;
+      padding: 35px 20px;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #7a7567;
+      border-top: 1px solid #ddd8cb;
+      margin-top: 40px;
+    }
+
+    footer i {
+      color: #b3a68b;
+      margin: 0 5px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .logo {
+        font-size: 1.8rem;
+      }
+      .cart-drawer {
+        width: 320px;
+      }
+      .products-grid {
+        padding: 20px 5% 40px;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div>
+      <div class="logo">
+        <i class="fas fa-paw"></i> Patas Unidas
+      </div>
+      <div class="tagline">adoção consciente & amor animal</div>
+    </div>
+    <div class="cart-icon" id="cartIcon">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </header>
+
+  <!-- Hero / incentivo adoção -->
+  <section class="hero">
+    <h1>Adote um amigo</h1>
+    <p>“Adotar é um ato de amor que transforma duas vidas: a deles e a sua.”</p>
+    <a href="#" class="btn-adopt" id="adoptBtn">Quero adotar</a>
+  </section>
+
+  <!-- Produtos -->
+  <h2 class="section-title">Loja do bem</h2>
+  <div class="products-grid" id="productsGrid">
+    <!-- Os produtos serão inseridos via JavaScript -->
+  </div>
+
+  <!-- Carrinho lateral -->
+  <div class="overlay" id="overlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-bag" style="font-size: 1.4rem; margin-right: 8px;"></i> Seu carrinho</h3>
+      <button class="close-cart" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Itens do carrinho aparecerão aqui -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">R$ 0,00</span>
+      </div>
+      <button class="btn-checkout" id="checkoutBtn">
+        <i class="fab fa-whatsapp"></i> Finalizar no WhatsApp
+      </button>
+      <div class="adoption-phrase">
+        <i class="fas fa-heart" style="color: #b3a68b;"></i> 
+        “Adotar é o primeiro passo para um mundo com menos abandono. Leve amor, leve um amigo.”
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p><i class="fas fa-paw"></i> ONG Patas Unidas — adoção responsável & produtos de qualidade <i class="fas fa-paw"></i></p>
+    <p style="margin-top: 10px; font-size: 0.75rem;">WhatsApp (81) 9 8971-7252</p>
+  </footer>
+
+  <script>
+    (function() {
+      // ---- Produtos ----
+      const products = [
+        { id: 1, name: "Ração Premium Cães", desc: "Sabor frango & arroz 10kg", price: 189.90, icon: "fa-dog" },
+        { id: 2, name: "Ração Gatos Castrados", desc: "Salmão 7,5kg", price: 159.90, icon: "fa-cat" },
+        { id: 3, name: "Shampoo Hipoalergênico", desc: "500ml – pelagem sensível", price: 49.90, icon: "fa-pump-soap" },
+        { id: 4, name: "Condicionador Desembaraçante", desc: "Para todos os tipos de pelo", price: 44.90, icon: "fa-spray-can" },
+        { id: 5, name: "Petiscos Naturais", desc: "Biscoitos de aveia e mel", price: 29.90, icon: "fa-cookie-bite" },
+        { id: 6, name: "Cama Ortopédica", desc: "Tamanho M – conforto premium", price: 229.90, icon: "fa-bed" },
+        { id: 7, name: "Coleira Ajustável", desc: "Nylon soft verde oliva", price: 59.90, icon: "fa-link" },
+        { id: 8, name: "Brinquedo Mordedor", desc: "Borracha atóxica resistente", price: 39.90, icon: "fa-baseball-ball" },
+        { id: 9, name: "Comedouro Duplo Inox", desc: "Antiderrapante", price: 89.90, icon: "fa-bowl-food" },
+        { id: 10, name: "Tapete Higiênico", desc: "Pacote 30 unidades", price: 74.90, icon: "fa-layer-group" },
+        { id: 11, name: "Escova de Pelo", desc: "Remoção de pelos mortos", price: 34.90, icon: "fa-brush" },
+        { id: 12, name: "Vermífugo Canino", desc: "Comprimidos – 4 unidades", price: 67.90, icon: "fa-capsules" }
+      ];
+
+      // ---- Estado do carrinho ----
+      let cart = []; // array de { productId, quantity }
+
+      // Elementos DOM
+      const productsGrid = document.getElementById('productsGrid');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartIcon = document.getElementById('cartIcon');
+      const closeCartBtn = document.getElementById('closeCartBtn');
+      const overlay = document.getElementById('overlay');
+      const cartItemsContainer = document.getElementById('cartItems');
+      const cartCountSpan = document.getElementById('cartCount');
+      const cartTotalSpan = document.getElementById('cartTotal');
+      const checkoutBtn = document.getElementById('checkoutBtn');
+      const adoptBtn = document.getElementById('adoptBtn');
+
+      // ---- Renderizar produtos ----
+      function renderProducts() {
+        productsGrid.innerHTML = '';
+        products.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'product-card';
+          card.innerHTML = `
+            <div class="product-icon"><i class="fas ${p.icon}"></i></div>
+            <div class="product-name">${p.name}</div>
+            <div class="product-desc">${p.desc}</div>
+            <div class="product-price">R$ ${p.price.toFixed(2).replace('.', ',')}</div>
+            <button class="btn-add" data-id="${p.id}"><i class="fas fa-plus-circle"></i> Adicionar</button>
+          `;
+          productsGrid.appendChild(card);
+        });
+
+        // Adicionar event listeners aos botões "Adicionar"
+        document.querySelectorAll('.btn-add').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const id = Number(btn.getAttribute('data-id'));
+            addToCart(id);
+          });
+        });
+      }
+
+      // ---- Funções do carrinho ----
+      function addToCart(productId) {
+        const existingItem = cart.find(item => item.productId === productId);
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({ productId, quantity: 1 });
+        }
+        updateCartUI();
+        // Pequeno feedback visual (opcional)
+      }
+
+      function removeFromCart(productId) {
+        cart = cart.filter(item => item.productId !== productId);
+        updateCartUI();
+      }
+
+      function updateQuantity(productId, delta) {
+        const item = cart.find(item => item.productId === productId);
+        if (!item) return;
+        const newQty = item.quantity + delta;
+        if (newQty <= 0) {
+          removeFromCart(productId);
+        } else {
+          item.quantity = newQty;
+          updateCartUI();
+        }
+      }
+
+      function getProductById(id) {
+        return products.find(p => p.id === id);
+      }
+
+      function calculateTotal() {
+        return cart.reduce((total, item) => {
+          const product = getProductById(item.productId);
+          return total + (product.price * item.quantity);
+        }, 0);
+      }
+
+      // ---- Atualizar interface do carrinho ----
+      function updateCartUI() {
+        // Quantidade total de itens (soma das quantities)
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountSpan.textContent = totalItems;
+
+        // Renderizar itens do carrinho
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = `<div class="empty-cart-message"><i class="fas fa-basket-shopping" style="font-size: 2rem; opacity: 0.4; display: block; margin-bottom: 10px;"></i>Seu carrinho está vazio</div>`;
+        } else {
+          let html = '';
+          cart.forEach(item => {
+            const product = getProductById(item.productId);
+            if (!product) return;
+            const subtotal = product.price * item.quantity;
+            html += `
+              <div class="cart-item">
+                <div class="cart-item-info">
+                  <div class="cart-item-name">${product.name}</div>
+                  <div class="cart-item-price">R$ ${product.price.toFixed(2).replace('.', ',')} cada</div>
+                  <div class="cart-item-qty">
+                    <button class="decrease-qty" data-id="${product.id}">−</button>
+                    <span style="min-width: 20px; text-align: center;">${item.quantity}</span>
+                    <button class="increase-qty" data-id="${product.id}">+</button>
+                  </div>
+                </div>
+                <div class="cart-item-total">R$ ${subtotal.toFixed(2).replace('.', ',')}</div>
+              </div>
+            `;
+          });
+          cartItemsContainer.innerHTML = html;
+
+          // Adicionar eventos de aumentar/diminuir
+          document.querySelectorAll('.decrease-qty').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              const id = Number(btn.getAttribute('data-id'));
+              updateQuantity(id, -1);
+            });
+          });
+          document.querySelectorAll('.increase-qty').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              const id = Number(btn.getAttribute('data-id'));
+              updateQuantity(id, 1);
+            });
+          });
+        }
+
+        // Atualizar total
+        const total = calculateTotal();
+        cartTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+      }
+
+      // ---- Abrir / fechar carrinho ----
+      function openCart() {
+        cartDrawer.classList.add('open');
+        overlay.classList.add('active');
+      }
+
+      function closeCart() {
+        cartDrawer.classList.remove('open');
+        overlay.classList.remove('active');
+      }
+
+      // ---- Finalizar compra via WhatsApp ----
+      function checkout() {
+        if (cart.length === 0) {
+          alert('Seu carrinho está vazio. Adicione produtos antes de finalizar.');
+          return;
+        }
+
+        // Montar mensagem
+        let message = '🐾 *Pedido - ONG Patas Unidas* 🐾\n\n';
+        message += 'Olá! Gostaria de finalizar meu pedido:\n\n';
+
+        cart.forEach(item => {
+          const product = getProductById(item.productId);
+          const subtotal = product.price * item.quantity;
+          message += `▪️ ${product.name} (${item.quantity}x) - R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+        });
+
+        const total = calculateTotal();
+        message += `\n*Total: R$ ${total.toFixed(2).replace('.', ',')}*\n\n`;
+
+        // Frase de incentivo à adoção
+        message += '❤️ *Adote um animal!* ❤️\n';
+        message += '"Adotar é um ato de amor que transforma duas vidas: a deles e a sua. Considere dar um lar a um amigo que espera por você."\n\n';
+        message += 'Agradecemos por apoiar nossa causa! 🐶🐱';
+
+        // Codificar mensagem para URL
+        const encodedMessage = encodeURIComponent(message);
+        const phone = '5581989717252'; // Número do WhatsApp (81 9 8971-7252 com DDI)
+
+        // Abrir WhatsApp
+        window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
+      }
+
+      // ---- Event Listeners ----
+      cartIcon.addEventListener('click', openCart);
+      closeCartBtn.addEventListener('click', closeCart);
+      overlay.addEventListener('click', closeCart);
+      checkoutBtn.addEventListener('click', checkout);
+      
+      // Botão de adoção (apenas um alerta simpático)
+      adoptBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('🐱🐶 Obrigado por considerar a adoção! Visite nossa ONG ou entre em contato pelo WhatsApp (81) 9 8971-7252 para conhecer os animais disponíveis. Adotar muda vidas!');
+      });
+
+      // ---- Inicialização ----
+      function init() {
+        renderProducts();
+        updateCartUI();
+
+        // Fechar carrinho com tecla ESC (opcional)
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && cartDrawer.classList.contains('open')) {
+            closeCart();
+          }
+        });
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>
